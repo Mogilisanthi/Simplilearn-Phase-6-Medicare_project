@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="col-md-6 offset-3">
+        <h2 class="text-primary">Update Admin Details : {{admin.ad_id}}</h2>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label>Admin_Name:</label>
+                <input type="text" formControlName="ad_name" class="form-control" 
+                [(ngModel)]="admin.ad_name" 
+                [ngClass]="{'is-invalid':submitted && form['ad_name'].errors}">
+                <div *ngIf="submitted && form['ad_name'].errors" class="invalid-feedback">
+                    Admin Name Can't be empty
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Admin Email:</label>
+                <input type="text" formControlName="ad_email" class="form-control" 
+                [(ngModel)]="admin.ad_email" 
+                [ngClass]="{'is-invalid':submitted && form['ad_email'].errors}">
+                <div *ngIf="submitted && form['ad_email'].errors" class="invalid-feedback">
+                     Admin Email Can't be empty
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label>Admin Login:</label>
+                <input type="text" formControlName="ad_login" class="form-control" 
+                [(ngModel)]="admin.ad_login" 
+                [ngClass]="{'is-invalid':submitted && form['ad_login'].errors}">
+                <div *ngIf="submitted && form['ad_login'].errors" class="invalid-feedback">
+                    Admin Login Can't be empty
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Admin Password:</label>
+                <input type="text" formControlName="ad_password" class="form-control" 
+                [(ngModel)]="admin.ad_password" 
+                [ngClass]="{'is-invalid':submitted && form['ad_password'].errors}">
+                <div *ngIf="submitted && form['ad_password'].errors" class="invalid-feedback">
+                    Admin Password Can't be empty
+                </div>
+            </div>
+            <br>
+            <button class="btn btn-primary">Update Admin Details</button>
+        </form>
+    </div>
+</div>
+

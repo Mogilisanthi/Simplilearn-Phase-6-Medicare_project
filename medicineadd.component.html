@@ -1,0 +1,37 @@
+<div style="width: 500px; margin:auto;">
+    <div class="submit-form">
+        <div *ngIf="!isSubmitted">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input class="form-control" id="name" required [(ngModel)]="medicine.name" name="name">
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input class="form-control" id="description" required [(ngModel)]="medicine.description" name="description">
+            </div>
+
+            <div class="form-group">
+                <label for="category">Category</label>
+                <input class="form-control" id="category" required [(ngModel)]="medicine.category" name="category">
+            </div>
+
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input class="form-control" id="price" required [(ngModel)]="medicine.price" name="price">
+            </div>
+
+            
+            <button (click)="addMedicine()" class="btn btn-success">Create</button>
+
+            
+        </div>
+        <div *ngIf="isSubmitted">
+            <h3> Data Added Successfully</h3>
+        </div>
+        <div class="link">
+            List of medicines<a routerLink="/medicinelist">List of medicines</a>
+        </div>
+    </div>
+</div>
+

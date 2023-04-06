@@ -1,0 +1,46 @@
+
+<div align=centre class="container">
+    <div class="row">
+      <div class="search">
+Enter the medicine to search<input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Search medicine">
+</div>
+</div>
+</div>
+
+
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th><i class="fa fa-id-card"></i>Id</th>
+            <th><i class="fa fa-id-card"></i>Name</th>
+            <th><i class="fa fa-id-card"></i>Image</th>
+            <th><i class="fa fa-user"></i>Description</th>
+            <th><i class="fa fa-envelope"></i>Category</th>
+            <th><i class="fas fa-rupee-sign"></i>Price</th>
+            <th><i class="fa fa-pen"></i>Add Medicine Details</th>
+            <th><i class="fa fa-pen"></i>Edit Medicine Details</th>
+            <th><i class="fa fa-trash"></i>Action</th>
+            <th><i class="fa fa-shopping-cart"></i>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let m of medicine | filter:searchText">
+            <td>{{m.id}}</td>
+            <td>{{m.name}}</td>
+            <td>{{m.imageUrl}}</td>
+            <td>{{m.description}}</td>
+            <td>{{m.category}}</td>
+            <td>{{m.price}}</td>
+            <td><a routerLink="/addmedicine">
+            <button class="btn btn-primary"> <i class="=fa-solid fa-pen"></i>Add</button></a></td>
+            <td><a routerLink="/editmedicine/{{m.id}}">
+            <button class="btn btn-info"> <i class="=fa-solid fa-pen"></i>Edit</button></a></td>
+            <td><button type="button"(click)='DeleteMedicineById(m.id)' class="btn btn-danger"><i class="fa-solid fa-trash"></i>Delete</button></td>
+            <td><a routerLink="/addcart" class="btn btn-success"><i class="fa fa-shopping-cart"></i>Add to Cart</a></td>
+            
+            
+            
+        </tr>
+    </tbody>
+</table>
